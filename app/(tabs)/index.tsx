@@ -1,138 +1,123 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'; // Make sure to install this package
 
-const WelcomeScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Header />
-            <ScrollView contentContainerStyle={styles.content}>
-                <Text style={styles.title}>Welcome to Naari Sahyog</Text>
-                <Text style={styles.description}>
-                    Your safety companion app, empowering women with peace of mind.
-                </Text>
-                <TouchableOpacity style={styles.sosButton} activeOpacity={0.7}>
-                    <Text style={styles.sosButtonText}>Send SOS Alert</Text>
-                </TouchableOpacity>
-            </ScrollView>
+const ProfileScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Header Section */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Profile</Text>
+      </View>
 
-            {/* Feature Cards Layout */}
-            <View style={styles.featureContainer}>
-                <View style={styles.featureRow}>
-                    <FeatureCard 
-                        title="24/7 Protection" 
-                        description="Stay safe around the clock with our continuous monitoring and support." 
-                    />
-                    <FeatureCard 
-                        title="Personalized Safety" 
-                        description="Customize your safety settings to fit your unique needs and lifestyle." 
-                    />
-                </View>
-                <FeatureCard 
-                    title="Instant Assistance" 
-                    description="Get immediate help with just one tap in case of emergencies." 
-                />
-            </View>
+      {/* Profile Section */}
+      <View style={styles.profileSection}>
+        <View style={styles.profilePicture}>
+          <Text style={styles.initials}>T</Text>
         </View>
-    );
+        <Text style={styles.name}>Tira Saha</Text>
+        <Text style={styles.phone}>+91 9193226780</Text>
+      </View>
+
+      {/* Buttons Section */}
+      <TouchableOpacity style={styles.button}>
+        <Icon name="create-outline" size={20} color="#000" />
+        <Text style={styles.buttonText}>Edit Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Icon name="people-outline" size={20} color="#000" />
+        <Text style={styles.buttonText}>Manage Guardians</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Icon name="notifications-outline" size={20} color="#000" />
+        <Text style={styles.buttonText}>Ring Status</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Volunteer Community</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>App Features</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Get Help</Text>
+      </TouchableOpacity>
+
+      {/* Logout Button */}
+      <TouchableOpacity style={styles.logoutButton}>
+        <Text style={styles.logoutText}>LOG OUT</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
-const Header = () => (
-    <View style={styles.header}>
-        <Ionicons name="shield" size={60} color="#6E4B8D" />
-    </View>
-);
-
-const FeatureCard = ({ title, description }) => (
-    <View style={styles.card}>
-        <Text style={styles.cardTitle}>{title}</Text>
-        <Text style={styles.cardDescription}>{description}</Text>
-    </View>
-);
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F8F0FF', // Light background color
-        padding: 20,
-    },
-    header: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 20,
-    },
-    content: {
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start', // Align content to the start
-        paddingBottom: 10,
-    },
-    title: {
-        fontSize: 30, // Increased size
-        fontWeight: 'bold',
-        color: '#4B3C6F', // Dark purple
-        marginBottom: 10,
-        textAlign: 'center',
-        textShadowColor: '#ccc', // Shadow color
-        textShadowOffset: { width: 2, height: 2 }, // Offset for shadow
-        textShadowRadius: 3, // Blur radius of shadow
-    },
-    description: {
-        fontSize: 14,
-        color: '#6E4B8D', // Medium purple
-        textAlign: 'center',
-        marginBottom: 20,
-    },
-    sosButton: {
-        backgroundColor: '#FF3B30', // Bright red to mimic a safety light
-        paddingVertical: 12,
-        borderRadius: 30,
-        marginBottom: 20,
-        width: '100%',
-        alignItems: 'center',
-        elevation: 5,
-    },
-    sosButtonText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    featureContainer: {
-        marginTop: 20,
-        position: 'absolute',
-        bottom: 20,
-        width: '100%',  // Use full width
-        alignItems: 'center', // Center the cards horizontally
-    },
-    featureRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between', // Space between cards
-        width: '100%',
-        paddingHorizontal: 10,
-    },
-    card: {
-        backgroundColor: '#FFFFFF',
-        borderRadius: 10,
-        padding: 20,
-        margin: 10,
-        elevation: 5, // Shadow effect
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        width: '45%', // Adjusted width for two cards side by side
-    },
-    cardTitle: {
-        fontSize: 18, // Increased size for titles 
-        fontWeight: 'bold',
-        color: '#6E4B8D',
-        marginBottom: 5,
-    },
-    cardDescription: {
-        fontSize: 12,
-        color: '#4B3C6F',
-        textAlign: 'center', // Center text for better readability
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F5F5',
+    padding: 20,
+  },
+  header: {
+    backgroundColor: '#FFF',
+    paddingVertical: 20,
+    alignItems: 'center',
+    marginBottom: 20,
+    borderRadius: 10,
+    elevation: 1,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  profileSection: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  profilePicture: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#2196F3',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  initials: {
+    color: '#FFFFFF',
+    fontSize: 40,
+    fontWeight: 'bold',
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  phone: {
+    fontSize: 16,
+    color: '#888',
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    padding: 15,
+    borderRadius: 5,
+    marginVertical: 5,
+    elevation: 2,
+  },
+  buttonText: {
+    fontSize: 16,
+    marginLeft: 10,
+  },
+  logoutButton: {
+    backgroundColor: '#F44336',
+    padding: 15,
+    borderRadius: 5,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  logoutText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+  },
 });
 
-export default WelcomeScreen;
+export default ProfileScreen;
